@@ -32,7 +32,8 @@
       "PowerShell(Start-Process -FilePath \"msiexec.exe\" -ArgumentList \"/i `\"$env:TEMP\\\\gh.msi`\" /quiet /norestart\" -Wait; Write-Output \"GitHub CLI 安装完成\")",
       "PowerShell($machinePath = [Environment]::GetEnvironmentVariable\\(\"Path\", \"Machine\"\\); $userPath = [Environment]::GetEnvironmentVariable\\(\"Path\", \"User\"\\); Write-Output \"Machine PATH: $machinePath\"; Write-Output \"User PATH: $userPath\"; # Check if gh.exe exists anywhere; Get-Command gh.exe -ErrorAction SilentlyContinue; dir \"$env:ProgramFiles\\\\GitHub CLI\\\\\" -ErrorAction SilentlyContinue; dir \"$env:LOCALAPPDATA\\\\Programs\\\\GitHub CLI\\\\\" -ErrorAction SilentlyContinue)",
       "PowerShell(Expand-Archive *)",
-      "PowerShell($env:GIT_SSH = \"C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\ssh.exe\"; & \"$env:TEMP\\\\gh-extract\\\\bin\\\\gh.exe\" auth login --hostname github.com --git-protocol ssh --skip-ssh-key 2>&1; Write-Output \"Exit code: $LASTEXITCODE\")"
+      "PowerShell($env:GIT_SSH = \"C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\ssh.exe\"; & \"$env:TEMP\\\\gh-extract\\\\bin\\\\gh.exe\" auth login --hostname github.com --git-protocol ssh --skip-ssh-key 2>&1; Write-Output \"Exit code: $LASTEXITCODE\")",
+      "PowerShell($env:Path = \"C:\\\\Program Files\\\\Git\\\\bin;\" + $env:Path; git status; Write-Output \"======\"; git diff --stat)"
     ]
   }
 }
